@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chess Blog — Tips, Guides & Opening Theory | ChessVault</title>
+<meta name="description" content="Free chess guides, opening tutorials, strategy tips, and game analysis. Learn chess openings, improve your game, and study famous games.">
+<link rel="canonical" href="https://chessvault.vercel.app/blog">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230d0d0d'/%3E%3Ctext y='.9em' font-size='80' x='10'%3E♞%3C/text%3E%3C/svg%3E">
+<!-- AdSense placeholder -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script> -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+:root{
+  --bg:#080808;--bg2:#0d0d0d;--bg3:#141414;--bg4:#1a1a1a;
+  --border:rgba(255,255,255,0.05);--border2:rgba(255,255,255,0.1);
+  --text:#f0f0f0;--text2:#888;--text3:#444;
+  --gold:#e8c870;--gold-dim:rgba(232,200,112,0.12);
+  --green:#22c97a;--red:#e5453a;
+  --radius:8px;--radius-lg:14px;
+  --font-display:'Bebas Neue',sans-serif;
+  --font-body:'Inter',-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+/* NAV */
+nav{position:sticky;top:0;z-index:100;height:60px;background:rgba(8,8,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 32px;gap:0}
+.nav-logo{font-family:var(--font-display);font-size:24px;letter-spacing:.06em;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:9px}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:4px;margin-left:auto}
+.nav-link{color:var(--text2);text-decoration:none;font-size:13px;font-weight:500;padding:6px 13px;border-radius:var(--radius);transition:all .15s}
+.nav-link:hover{color:var(--text);background:rgba(255,255,255,.05)}
+.nav-cta{background:var(--gold);color:#111 !important;font-weight:700;padding:7px 18px}
+.nav-cta:hover{background:#f0d580 !important}
+/* HERO */
+.blog-hero{padding:80px 24px 60px;text-align:center;border-bottom:1px solid var(--border);background:var(--bg2)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.blog-hero h1{font-family:var(--font-display);font-size:clamp(48px,7vw,80px);letter-spacing:.04em;line-height:.95;margin-bottom:16px}
+.blog-hero p{font-size:17px;color:var(--text2);max-width:480px;margin:0 auto}
+/* AD */
+.ad-slot{background:var(--bg3);border:1px dashed var(--border2);border-radius:var(--radius);min-height:90px;display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin:40px auto;max-width:728px}
+/* CONTENT */
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+/* FEATURED */
+.featured-grid{display:grid;grid-template-columns:2fr 1fr;gap:24px;padding:60px 0 40px}
+.featured-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;text-decoration:none;color:inherit;display:block;transition:all .2s}
+.featured-card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.card-thumb{
+  height:200px;background:var(--bg4);
+  display:flex;align-items:center;justify-content:center;
+  font-size:80px;position:relative;overflow:hidden;
+}
+.card-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(0,0,0,.5));pointer-events:none}
+.card-body{padding:20px}
+.card-cat{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.card-title{font-size:20px;font-weight:700;margin-bottom:8px;line-height:1.3;color:var(--text)}
+.card-title.lg{font-size:26px}
+.card-desc{font-size:13px;color:var(--text2);line-height:1.6}
+.card-meta{margin-top:14px;font-size:11px;color:var(--text3);display:flex;gap:12px;align-items:center}
+.card-tag{background:var(--bg4);border:.5px solid var(--border);border-radius:20px;padding:2px 8px;font-size:10px;color:var(--text2)}
+.featured-side{display:flex;flex-direction:column;gap:16px}
+.side-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;text-decoration:none;color:inherit;display:block;transition:all .2s}
+.side-card:hover{border-color:var(--border2);background:var(--bg4)}
+.side-card-cat{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.side-card-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.4}
+.side-card-meta{font-size:10px;color:var(--text3);margin-top:6px}
+/* CATEGORIES */
+.cat-row{display:flex;gap:8px;flex-wrap:wrap;padding:20px 0}
+.cat-btn{background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:6px 16px;font-size:12px;font-weight:600;color:var(--text2);cursor:pointer;transition:all .15s;text-decoration:none}
+.cat-btn:hover,.cat-btn.active{background:var(--gold-dim);color:var(--gold);border-color:rgba(232,200,112,.3)}
+/* GRID */
+.articles-section h2{font-family:var(--font-display);font-size:28px;letter-spacing:.06em;margin-bottom:8px;color:var(--text)}
+.articles-section p{font-size:13px;color:var(--text2);margin-bottom:24px}
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-bottom:60px}
+.article-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;text-decoration:none;color:inherit;display:block;transition:all .2s}
+.article-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.article-thumb{height:120px;background:var(--bg4);display:flex;align-items:center;justify-content:center;font-size:50px}
+.article-body{padding:14px}
+.article-cat{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.article-title{font-size:14px;font-weight:600;line-height:1.4;color:var(--text);margin-bottom:6px}
+.article-desc{font-size:12px;color:var(--text2);line-height:1.5}
+.article-meta{font-size:10px;color:var(--text3);margin-top:10px}
+/* NEWSLETTER */
+.newsletter{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px;text-align:center;margin:40px 0 80px}
+.newsletter h3{font-family:var(--font-display);font-size:30px;letter-spacing:.06em;margin-bottom:8px}
+.newsletter p{font-size:14px;color:var(--text2);margin-bottom:24px}
+.newsletter-form{display:flex;gap:8px;justify-content:center;max-width:400px;margin:0 auto;flex-wrap:wrap}
+.newsletter-input{flex:1;padding:10px 16px;background:var(--bg4);border:1px solid var(--border2);border-radius:var(--radius);color:var(--text);font-size:14px;font-family:var(--font-body);min-width:200px}
+.newsletter-input:focus{outline:none;border-color:var(--gold)}
+.newsletter-btn{padding:10px 24px;background:var(--gold);color:#111;border:none;border-radius:var(--radius);font-weight:700;cursor:pointer;font-size:14px;font-family:var(--font-body);white-space:nowrap}
+.newsletter-btn:hover{background:#f0d580}
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 32px 24px}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-links{display:flex;gap:16px;flex-wrap:wrap}
+.footer-links a{color:var(--text2);text-decoration:none;font-size:13px;transition:color .15s}
+.footer-links a:hover{color:var(--text)}
+.footer-copy{font-size:12px;color:var(--text3)}
+@media(max-width:768px){
+  .featured-grid{grid-template-columns:1fr}
+  nav{padding:0 16px}
+  .nav-link:not(.nav-cta){display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">♞ Chess<span>Vault</span></a>
+  <div class="nav-links">
+    <a href="/trainer" class="nav-link">Trainer</a>
+    <a href="/blog" class="nav-link" style="color:var(--text)">Blog</a>
+    <a href="/about" class="nav-link">About</a>
+    <a href="/trainer" class="nav-link nav-cta">Train Free →</a>
+  </div>
+</nav>
+
+<div class="blog-hero">
+  <div class="eyebrow">♟ Chess Knowledge</div>
+  <h1>THE CHESSVAULT<br>BLOG</h1>
+  <p>Opening guides, strategy tips, game analysis, and everything you need to improve your chess.</p>
+</div>
+
+<div class="container">
+  <!-- AD SLOT TOP -->
+  <div class="ad-slot">Advertisement — Google AdSense</div>
+
+  <!-- CATEGORY FILTER -->
+  <div class="cat-row">
+    <a href="/blog" class="cat-btn active">All</a>
+    <a href="/blog/category/openings" class="cat-btn">Openings</a>
+    <a href="/blog/category/strategy" class="cat-btn">Strategy</a>
+    <a href="/blog/category/famous-games" class="cat-btn">Famous Games</a>
+    <a href="/blog/category/beginners" class="cat-btn">Beginners</a>
+    <a href="/blog/category/tactics" class="cat-btn">Tactics</a>
+  </div>
+
+  <!-- FEATURED -->
+  <div class="featured-grid">
+    <a href="/blog/how-to-study-openings" class="featured-card">
+      <div class="card-thumb">📚</div>
+      <div class="card-body">
+        <div class="card-cat">Guide · Openings</div>
+        <div class="card-title lg">How to Actually Study Chess Openings (and What Not to Do)</div>
+        <div class="card-desc">Most players study openings the wrong way — memorizing moves without understanding ideas. Here's the method that actually builds lasting improvement.</div>
+        <div class="card-meta">
+          <span>8 min read</span>
+          <span>·</span>
+          <span>Beginner-friendly</span>
+          <span class="card-tag">Essential</span>
+        </div>
+      </div>
+    </a>
+    <div class="featured-side">
+      <a href="/blog/scotch-game-guide" class="side-card">
+        <div class="side-card-cat">Opening Guide</div>
+        <div class="side-card-title">The Scotch Game: White's Most Active 1.e4 Weapon</div>
+        <div class="side-card-meta">6 min read · White Repertoire</div>
+      </a>
+      <a href="/blog/caro-kann-guide" class="side-card">
+        <div class="side-card-cat">Opening Guide</div>
+        <div class="side-card-title">The Caro-Kann: Solid, Reliable, and Misunderstood</div>
+        <div class="side-card-meta">7 min read · Black Repertoire</div>
+      </a>
+      <a href="/blog/opera-game-analysis" class="side-card">
+        <div class="side-card-cat">Famous Game</div>
+        <div class="side-card-title">Morphy's Opera Game: The Most Beautiful Attack Ever Played</div>
+        <div class="side-card-meta">5 min read · 1858</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- AD SLOT MID -->
+  <div class="ad-slot" style="max-width:336px;min-height:280px">Advertisement</div>
+
+  <!-- ALL ARTICLES -->
+  <div class="articles-section">
+    <h2>OPENING GUIDES</h2>
+    <p>Deep dives into every opening in the ChessVault repertoire.</p>
+    <div class="articles-grid">
+      <a href="/blog/scotch-game-guide" class="article-card">
+        <div class="article-thumb">⚔️</div>
+        <div class="article-body">
+          <div class="article-cat">Opening Guide</div>
+          <div class="article-title">The Scotch Game: Complete White Repertoire Guide</div>
+          <div class="article-desc">All 6 main lines explained — Classical, Mieses, Göring Gambit, Steinitz trap and more.</div>
+          <div class="article-meta">6 min read · White · 1.e4 e5 2.Nf3 Nc6 3.d4</div>
+        </div>
+      </a>
+      <a href="/blog/caro-kann-guide" class="article-card">
+        <div class="article-thumb">🛡️</div>
+        <div class="article-body">
+          <div class="article-cat">Opening Guide</div>
+          <div class="article-title">The Caro-Kann Defence: Why It's Better Than You Think</div>
+          <div class="article-desc">The Classical, Advance, and Tal Variation — what White plays and how to handle each one.</div>
+          <div class="article-meta">7 min read · Black · 1.e4 c6</div>
+        </div>
+      </a>
+      <a href="/blog/sicilian-alapin" class="article-card">
+        <div class="article-thumb">🏰</div>
+        <div class="article-body">
+          <div class="article-cat">Opening Guide</div>
+          <div class="article-title">The Alapin Sicilian: White's Anti-Sicilian Weapon</div>
+          <div class="article-desc">Why 2.c3 is one of the best ways to avoid Sicilian theory while keeping winning chances.</div>
+          <div class="article-meta">5 min read · White · 1.e4 c5 2.c3</div>
+        </div>
+      </a>
+      <a href="/blog/french-advance-guide" class="article-card">
+        <div class="article-thumb">🇫🇷</div>
+        <div class="article-body">
+          <div class="article-cat">Opening Guide</div>
+          <div class="article-title">The French Advance: Claiming Space with 3.e5</div>
+          <div class="article-desc">The Advance Variation gives White a strong pawn centre — here's how to play it correctly.</div>
+          <div class="article-meta">5 min read · Both sides · 1.e4 e6 2.d4 d5 3.e5</div>
+        </div>
+      </a>
+      <a href="/blog/nimzo-indian-guide" class="article-card">
+        <div class="article-thumb">♛</div>
+        <div class="article-body">
+          <div class="article-cat">Opening Guide</div>
+          <div class="article-title">The Nimzo-Indian: Chess's Most Dynamic Defence</div>
+          <div class="article-desc">Why top players love Bb4+ and how to use the bishop pair imbalance to outplay your opponent.</div>
+          <div class="article-meta">7 min read · Black · 1.d4 Nf6 2.c4 e6 3.Nc3 Bb4</div>
+        </div>
+      </a>
+      <a href="/blog/opening-mistakes" class="article-card">
+        <div class="article-thumb">❌</div>
+        <div class="article-body">
+          <div class="article-cat">Improvement</div>
+          <div class="article-title">5 Opening Mistakes Club Players Make Every Game</div>
+          <div class="article-desc">These common errors cost games at the 600–1500 level. Learn to stop making them and watch your results change.</div>
+          <div class="article-meta">4 min read · Beginner–Intermediate</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="articles-section">
+    <h2>FAMOUS GAMES</h2>
+    <p>The greatest chess games ever played, explained move by move.</p>
+    <div class="articles-grid">
+      <a href="/blog/opera-game-analysis" class="article-card">
+        <div class="article-thumb">🎭</div>
+        <div class="article-body">
+          <div class="article-cat">Famous Game · 1858</div>
+          <div class="article-title">Morphy's Opera Game: Queen Sacrifice in 17 Moves</div>
+          <div class="article-desc">Paul Morphy plays chess while watching an opera — and produces one of the most brilliant attacks in history.</div>
+          <div class="article-meta">5 min read · Paul Morphy vs Duke of Brunswick</div>
+        </div>
+      </a>
+      <a href="/blog/immortal-game-analysis" class="article-card">
+        <div class="article-thumb">♟</div>
+        <div class="article-body">
+          <div class="article-cat">Famous Game · 1851</div>
+          <div class="article-title">The Immortal Game: Anderssen's King's Gambit Masterpiece</div>
+          <div class="article-desc">Two rooks, a bishop, and the queen sacrificed — and White still wins. The most dazzling game of the 19th century.</div>
+          <div class="article-meta">6 min read · Anderssen vs Kieseritzky</div>
+        </div>
+      </a>
+      <a href="/blog/how-to-study-famous-games" class="article-card">
+        <div class="article-thumb">🔬</div>
+        <div class="article-body">
+          <div class="article-cat">Study Method</div>
+          <div class="article-title">How to Study Famous Games the Right Way</div>
+          <div class="article-desc">Don't just replay moves — understand the ideas. A structured method for extracting maximum value from classic games.</div>
+          <div class="article-meta">4 min read · All levels</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- AD SLOT BOTTOM -->
+  <div class="ad-slot">Advertisement — Google AdSense</div>
+
+  <!-- NEWSLETTER PLACEHOLDER -->
+  <div class="newsletter">
+    <h3>CHESS TIPS, WEEKLY</h3>
+    <p>Get one actionable chess improvement tip every week. Free, no spam, unsubscribe anytime.</p>
+    <div class="newsletter-form">
+      <input class="newsletter-input" type="email" placeholder="your@email.com">
+      <button class="newsletter-btn">Subscribe</button>
+    </div>
+    <p style="font-size:11px;color:var(--text3);margin-top:12px">No spam. Unsubscribe anytime.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.06em;color:var(--text);text-decoration:none;">♞ Chess<span style="color:var(--gold)">Vault</span></a>
+    <div class="footer-links">
+      <a href="/trainer">Trainer</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="footer-copy">© 2025 ChessVault — Free forever</div>
+  </div>
+</footer>
+
+</body>
+</html>

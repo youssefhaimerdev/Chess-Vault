@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | ChessVault</title>
+<meta name="description" content="Get in touch with the ChessVault team — bug reports, opening suggestions, feedback, or just to say hi.">
+<link rel="canonical" href="https://chessvault.vercel.app/contact">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230d0d0d'/%3E%3Ctext y='.9em' font-size='80' x='10'%3E♞%3C/text%3E%3C/svg%3E">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+:root{--bg:#080808;--bg2:#0d0d0d;--bg3:#141414;--bg4:#1a1a1a;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.13);--text:#f0f0f0;--text2:#888;--text3:#444;--gold:#e8c870;--gold-dim:rgba(232,200,112,0.12);--green:#22c97a;--red:#e5453a;--radius:8px;--radius-lg:14px;--font-display:'Bebas Neue',sans-serif;--font-body:'Inter',-apple-system,sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.7}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+nav{position:sticky;top:0;z-index:100;height:60px;background:rgba(8,8,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 32px}
+.nav-logo{font-family:var(--font-display);font-size:24px;letter-spacing:.06em;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:9px}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:4px;margin-left:auto}
+.nav-link{color:var(--text2);text-decoration:none;font-size:13px;font-weight:500;padding:6px 13px;border-radius:var(--radius);transition:all .15s}
+.nav-link:hover{color:var(--text);background:rgba(255,255,255,.05)}
+.nav-cta{background:var(--gold);color:#111 !important;font-weight:700}
+.page-hero{padding:70px 24px 50px;text-align:center;border-bottom:1px solid var(--border);background:var(--bg2)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.page-hero h1{font-family:var(--font-display);font-size:clamp(40px,7vw,80px);letter-spacing:.04em;margin-bottom:10px}
+.page-hero p{font-size:15px;color:var(--text2);max-width:480px;margin:0 auto}
+.container{max-width:900px;margin:0 auto;padding:60px 24px 100px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.form-side h2{font-family:var(--font-display);font-size:32px;letter-spacing:.06em;margin-bottom:8px}
+.form-side p{font-size:14px;color:var(--text2);margin-bottom:28px;line-height:1.7}
+.form-group{margin-bottom:18px}
+label{display:block;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--text2);margin-bottom:6px}
+input,textarea,select{
+  width:100%;padding:11px 14px;
+  background:var(--bg3);border:1px solid var(--border2);
+  border-radius:var(--radius);color:var(--text);
+  font-size:14px;font-family:var(--font-body);
+  transition:border-color .15s;resize:vertical;
+}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
+input::placeholder,textarea::placeholder{color:var(--text3)}
+textarea{min-height:130px}
+.submit-btn{
+  width:100%;padding:14px;background:var(--gold);color:#111;
+  border:none;border-radius:var(--radius);font-size:15px;font-weight:700;
+  cursor:pointer;font-family:var(--font-body);letter-spacing:.02em;
+  transition:all .18s;margin-top:4px;
+}
+.submit-btn:hover{background:#f0d580;transform:translateY(-1px);box-shadow:0 6px 24px rgba(232,200,112,.3)}
+.success-msg{
+  display:none;padding:14px;background:rgba(34,201,122,.12);
+  border:1px solid rgba(34,201,122,.25);border-radius:var(--radius);
+  color:var(--green);font-size:14px;font-weight:600;text-align:center;
+  margin-top:14px;
+}
+.info-side{display:flex;flex-direction:column;gap:20px}
+.info-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;transition:border-color .2s}
+.info-card:hover{border-color:var(--border2)}
+.info-card-icon{font-size:28px;margin-bottom:10px}
+.info-card h3{font-size:15px;font-weight:700;margin-bottom:6px}
+.info-card p{font-size:13px;color:var(--text2);line-height:1.6}
+.info-card a{color:var(--gold);text-decoration:none}
+.info-card a:hover{text-decoration:underline}
+.topics{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.topic-tag{font-size:11px;padding:3px 10px;border-radius:20px;background:var(--bg4);border:.5px solid var(--border2);color:var(--text2)}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px;text-align:center}
+footer a{color:var(--text2);text-decoration:none;font-size:13px;margin:0 10px}
+footer a:hover{color:var(--text)}
+footer p{font-size:12px;color:var(--text3);margin-top:12px}
+@media(max-width:700px){
+  nav{padding:0 16px}.nav-link:not(.nav-cta){display:none}
+  .container{grid-template-columns:1fr;gap:32px;padding:40px 20px 80px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">♞ Chess<span>Vault</span></a>
+  <div class="nav-links">
+    <a href="/trainer" class="nav-link">Trainer</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <a href="/about" class="nav-link">About</a>
+    <a href="/trainer" class="nav-link nav-cta">Train Free →</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="eyebrow">♟ Get in Touch</div>
+  <h1>CONTACT<br><span style="color:var(--gold)">CHESSVAULT</span></h1>
+  <p>Bug reports, opening suggestions, feedback, or just want to say hi — we read everything.</p>
+</div>
+
+<div class="container">
+  <div class="form-side">
+    <h2>SEND US A MESSAGE</h2>
+    <p>We typically respond within 1–2 business days. For bug reports, please include your browser and device type.</p>
+
+    <form id="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Magnus Carlsen" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject">
+          <option value="">Select a topic…</option>
+          <option value="bug">🐛 Bug Report</option>
+          <option value="opening">♟ Opening Suggestion</option>
+          <option value="feature">💡 Feature Request</option>
+          <option value="feedback">📝 General Feedback</option>
+          <option value="business">💼 Business / Advertising</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us what's on your mind…" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message ♟</button>
+      <div class="success-msg" id="success-msg">
+        ✓ Message sent! We'll get back to you within 1–2 business days.
+      </div>
+    </form>
+  </div>
+
+  <div class="info-side">
+    <div class="info-card">
+      <div class="info-card-icon">🐛</div>
+      <h3>Bug Reports</h3>
+      <p>Found something broken? Please include your browser, operating system, and what you were doing when the issue occurred. Screenshots are always helpful.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">♟</div>
+      <h3>Opening Suggestions</h3>
+      <p>Want to see a specific opening added to ChessVault? We'd love to hear which openings and lines matter most to you. The library is always growing.</p>
+      <div class="topics">
+        <span class="topic-tag">Ruy Lopez</span>
+        <span class="topic-tag">King's Indian</span>
+        <span class="topic-tag">Queen's Gambit</span>
+        <span class="topic-tag">Sicilian Dragon</span>
+        <span class="topic-tag">English Opening</span>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">📬</div>
+      <h3>Email</h3>
+      <p>You can also reach us directly at <a href="mailto:hello@chessvault.app">hello@chessvault.app</a>. For privacy matters specifically, use <a href="mailto:privacy@chessvault.app">privacy@chessvault.app</a>.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">⏱</div>
+      <h3>Response Time</h3>
+      <p>We typically respond within <strong style="color:var(--text)">1–2 business days</strong>. We're a small team, but we read every message.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="/">Home</a>
+  <a href="/trainer">Trainer</a>
+  <a href="/blog">Blog</a>
+  <a href="/about">About</a>
+  <a href="/privacy">Privacy</a>
+  <a href="/contact">Contact</a>
+  <p>© 2025 ChessVault — Free chess training for everyone</p>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  // In production, wire to a form service (Formspree, EmailJS, etc.)
+  const btn = document.querySelector('.submit-btn');
+  const msg = document.getElementById('success-msg');
+  btn.textContent = 'Sending…'; btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Sent ✓'; btn.style.background = 'var(--green)';
+    msg.style.display = 'block';
+    document.getElementById('contact-form').reset();
+  }, 800);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Scotch Game: Complete White Repertoire Guide | ChessVault Blog</title>
+<meta name="description" content="Master the Scotch Game as White. All 6 main lines explained with move-by-move analysis — Classical, Mieses, Göring Gambit, Steinitz trap, Malaniuk, and Scotch Gambit.">
+<meta name="keywords" content="scotch game chess, 1 e4 e5 Nf3 Nc6 d4, scotch opening guide, chess opening white repertoire">
+<link rel="canonical" href="https://chessvault.vercel.app/blog/scotch-game-guide">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230d0d0d'/%3E%3Ctext y='.9em' font-size='80' x='10'%3E♞%3C/text%3E%3C/svg%3E">
+<!-- AdSense placeholder -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script> -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap');
+:root{--bg:#080808;--bg2:#0d0d0d;--bg3:#141414;--bg4:#1a1a1a;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--text:#f0f0f0;--text2:#888;--text3:#444;--gold:#e8c870;--gold-dim:rgba(232,200,112,0.12);--green:#22c97a;--radius:8px;--font-display:'Bebas Neue',sans-serif;--font-body:'Inter',-apple-system,sans-serif;--font-mono:'JetBrains Mono','Courier New',monospace;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.7}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+nav{position:sticky;top:0;z-index:100;height:60px;background:rgba(8,8,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 32px}
+.nav-logo{font-family:var(--font-display);font-size:24px;letter-spacing:.06em;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:9px}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:4px;margin-left:auto}
+.nav-link{color:var(--text2);text-decoration:none;font-size:13px;font-weight:500;padding:6px 13px;border-radius:var(--radius);transition:all .15s}
+.nav-link:hover{color:var(--text);background:rgba(255,255,255,.05)}
+.nav-cta{background:var(--gold);color:#111 !important;font-weight:700}
+/* ARTICLE LAYOUT */
+.article-hero{padding:70px 24px 50px;background:var(--bg2);border-bottom:1px solid var(--border)}
+.article-hero-inner{max-width:760px;margin:0 auto}
+.article-breadcrumb{font-size:12px;color:var(--text3);margin-bottom:16px}
+.article-breadcrumb a{color:var(--text2);text-decoration:none}
+.article-breadcrumb a:hover{color:var(--gold)}
+.article-cat{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.article-hero h1{font-family:var(--font-display);font-size:clamp(36px,6vw,64px);letter-spacing:.04em;line-height:.95;margin-bottom:16px}
+.article-hero .lead{font-size:17px;color:var(--text2);line-height:1.7;margin-bottom:20px}
+.article-meta{display:flex;align-items:center;gap:14px;font-size:12px;color:var(--text3);flex-wrap:wrap}
+.article-meta-tag{background:var(--bg4);border:.5px solid var(--border2);border-radius:20px;padding:3px 10px;color:var(--text2)}
+/* AD */
+.ad-slot{background:var(--bg3);border:1px dashed var(--border2);border-radius:var(--radius);min-height:90px;display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin:32px auto;max-width:728px}
+/* ARTICLE BODY */
+.article-layout{max-width:1060px;margin:0 auto;padding:50px 24px 80px;display:grid;grid-template-columns:1fr 260px;gap:48px;align-items:start}
+.article-body h2{font-family:var(--font-display);font-size:28px;letter-spacing:.06em;color:var(--text);margin:36px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.article-body h2:first-child{margin-top:0}
+.article-body h3{font-size:16px;font-weight:700;color:var(--text);margin:24px 0 10px}
+.article-body p{font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:14px}
+.article-body p strong{color:var(--text)}
+.article-body ul,.article-body ol{font-size:15px;color:var(--text2);line-height:1.9;margin:0 0 14px 22px}
+.article-body a{color:var(--gold);text-decoration:none}
+.article-body a:hover{text-decoration:underline}
+/* Move notation */
+.move-line{
+  background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--gold);
+  border-radius:var(--radius);padding:14px 18px;margin:18px 0;
+  font-family:var(--font-mono);font-size:13px;color:var(--text);line-height:1.8;
+}
+.move-line .key-move{color:var(--gold);font-weight:700}
+.move-line .comment{color:var(--text2);font-style:italic;font-family:var(--font-body)}
+/* Opening box */
+.opening-box{
+  background:var(--bg3);border:1px solid var(--border2);
+  border-radius:12px;padding:20px 22px;margin:24px 0;
+}
+.opening-box-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.opening-box-emoji{font-size:28px}
+.opening-box-title{font-size:16px;font-weight:700;color:var(--text)}
+.opening-box-subtitle{font-size:12px;color:var(--text2)}
+.opening-box p{font-size:13px;color:var(--text2);line-height:1.7;margin:0}
+/* Key concept box */
+.concept-box{
+  background:var(--gold-dim);border:1px solid rgba(232,200,112,.25);
+  border-radius:var(--radius);padding:16px 20px;margin:20px 0;
+}
+.concept-box-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.concept-box p{font-size:13px;color:var(--text);line-height:1.7;margin:0}
+/* Table of contents (sidebar) */
+.sidebar{position:sticky;top:80px}
+.toc{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px}
+.toc-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:14px}
+.toc-link{display:block;font-size:13px;color:var(--text2);text-decoration:none;padding:4px 0;border-left:2px solid transparent;padding-left:10px;transition:all .12s;line-height:1.5}
+.toc-link:hover,.toc-link.active{color:var(--gold);border-left-color:var(--gold)}
+.sidebar-cta{margin-top:16px;background:var(--gold);color:#111;text-align:center;padding:12px 16px;border-radius:var(--radius);font-weight:700;font-size:13px;text-decoration:none;display:block;transition:all .18s}
+.sidebar-cta:hover{background:#f0d580}
+.sidebar-ad{margin-top:16px;background:var(--bg3);border:1px dashed var(--border2);border-radius:var(--radius);min-height:250px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--text3);letter-spacing:.06em;text-transform:uppercase}
+/* Related articles */
+.related-section{border-top:1px solid var(--border);padding-top:40px;margin-top:40px}
+.related-section h3{font-family:var(--font-display);font-size:24px;letter-spacing:.06em;margin-bottom:20px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.related-card{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px;text-decoration:none;color:inherit;transition:all .15s;display:block}
+.related-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.related-card-cat{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.related-card-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.4}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px;text-align:center}
+footer a{color:var(--text2);text-decoration:none;font-size:13px;margin:0 10px}
+footer a:hover{color:var(--text)}
+footer p{font-size:12px;color:var(--text3);margin-top:12px}
+@media(max-width:860px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}}
+@media(max-width:600px){nav{padding:0 16px}.nav-link:not(.nav-cta){display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">♞ Chess<span>Vault</span></a>
+  <div class="nav-links">
+    <a href="/trainer" class="nav-link">Trainer</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <a href="/about" class="nav-link">About</a>
+    <a href="/trainer" class="nav-link nav-cta">Train Free →</a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-breadcrumb">
+      <a href="/">Home</a> › <a href="/blog">Blog</a> › <a href="/blog/category/openings">Openings</a> › Scotch Game
+    </div>
+    <div class="article-cat">Opening Guide · White Repertoire</div>
+    <h1>THE SCOTCH GAME:<br>WHITE'S MOST ACTIVE<br>1.e4 WEAPON</h1>
+    <p class="lead">The Scotch Game gives White an immediate central fight, active piece play, and a wide variety of pawn structures — all while sidestepping mountains of Ruy Lopez theory. Here's everything you need to know.</p>
+    <div class="article-meta">
+      <span>⚔️ 1.e4 e5 2.Nf3 Nc6 3.d4</span>
+      <span>·</span>
+      <span>6 min read</span>
+      <span>·</span>
+      <span class="article-meta-tag">White</span>
+      <span class="article-meta-tag">Open Games</span>
+      <span class="article-meta-tag">Beginner–Intermediate</span>
+    </div>
+  </div>
+</div>
+
+<!-- AD TOP -->
+<div style="padding:20px 24px;text-align:center">
+  <div class="ad-slot">Advertisement</div>
+</div>
+
+<div class="article-layout">
+  <div class="article-body">
+
+    <h2 id="what">What Is the Scotch Game?</h2>
+    <p>The Scotch Game arises after <strong>1.e4 e5 2.Nf3 Nc6 3.d4</strong>. White immediately strikes in the centre on move three, rather than developing quietly as in the Ruy Lopez. The key idea is simple: if Black takes on d4, White recaptures with the knight and gains a powerful central outpost. If Black doesn't take, White still gets excellent central control.</p>
+
+    <div class="move-line">
+      1.e4 e5 2.Nf3 Nc6 <span class="key-move">3.d4</span>
+      <span class="comment"> — The Scotch! Immediate central confrontation.</span><br>
+      3...exd4 4.<span class="key-move">Nxd4</span>
+      <span class="comment"> — White recaptures and the knight dominates d4.</span>
+    </div>
+
+    <p>The Scotch Game was a favourite of Garry Kasparov, who used it to defeat Anatoly Karpov in their 1990 World Championship match and revived interest in the opening at the highest level. Today it's played by Magnus Carlsen and virtually every 1.e4 player looking to avoid the dense theory of the Ruy Lopez.</p>
+
+    <div class="concept-box">
+      <div class="concept-box-title">💡 Why Play the Scotch?</div>
+      <p>The Scotch avoids the Ruy Lopez's endless theory while still fighting for the centre. White gets active piece play and can choose from razor-sharp gambits or solid positional lines depending on their style.</p>
+    </div>
+
+    <h2 id="lines">The 6 Main Lines</h2>
+
+    <h3 id="classical">1. The Classical — 4…Bc5</h3>
+    <p>After 4.Nxd4, Black's most principled response is <strong>4…Bc5</strong>, the Classical Scotch. The bishop immediately attacks d4 and eyeing the f2 pawn. White typically continues with <strong>5.Be3</strong> to challenge the bishop, and after 5…Qf6, Black is attacking d4 and threatening Qxf2+. This leads to sharp, tactical play where both sides must know their theory.</p>
+
+    <div class="move-line">
+      4...Bc5 5.Be3 <span class="key-move">Qf6</span>
+      <span class="comment"> — Attacks d4 AND f2 simultaneously. Sharp!</span><br>
+      6.c3 Nge7 7.Bc4 Ne5 8.Be2 d5!
+      <span class="comment"> — Black's central break, the key freeing move.</span>
+    </div>
+
+    <p>The key idea for Black in the Classical is the central break with …d5. Once Black achieves this, the position opens and the bishop on c5 becomes very active. White must be precise to maintain the advantage.</p>
+
+    <h3 id="mieses">2. The Mieses/Schmidt — 4…Nf6</h3>
+    <p>The most popular response to the Scotch at club level. <strong>4…Nf6</strong> immediately attacks the e4 pawn and forces White to commit. After <strong>5.Nxc6 bxc6</strong>, Black gets the bishop pair and an open b-file in exchange for doubled pawns. The resulting positions are rich with imbalances.</p>
+
+    <div class="move-line">
+      4...Nf6 5.<span class="key-move">Nxc6</span>
+      <span class="comment"> — White creates structural damage.</span><br>
+      5...bxc6 6.e5 <span class="key-move">Qe7</span>
+      <span class="comment"> — Pins the e5 pawn and defends the knight.</span>
+    </div>
+
+    <p>The key strategic idea for White is to dominate the c5 square and exploit Black's doubled pawns. For Black, the bishop pair and open files provide long-term compensation. These positions often become very complex in the middlegame.</p>
+
+    <h3 id="göring">3. The Göring Gambit — 4.c3</h3>
+    <p>Instead of recapturing on d4 immediately, White plays <strong>4.c3!?</strong>, offering a second pawn for a massive development lead. After 4…dxc3 5.Nxc3, White has both central pawns and all pieces actively placed while Black's queen is misplaced on b2. This is one of the most dangerous gambits for club players to face.</p>
+
+    <div class="move-line">
+      3...exd4 <span class="key-move">4.c3!?</span>
+      <span class="comment"> — The Göring Gambit! Second pawn offered.</span><br>
+      4...dxc3 5.Nxc3
+      <span class="comment"> — White has enormous development. Black's queen can get trapped!</span>
+    </div>
+
+    <div class="concept-box">
+      <div class="concept-box-title">⚠️ The Göring Gambit Trap</div>
+      <p>After 5…Bc5? 6.Bc4 Qb6? 7.Qb3! White wins back the pawn with advantage, and after 7…Qxb3 8.axb3 Black faces a difficult endgame. The queen on b2 is very dangerous!</p>
+    </div>
+
+    <h3 id="steinitz">4. The Steinitz Trap — 4…Qh4?!</h3>
+    <p>An aggressive try where Black immediately checks with the queen. After <strong>4…Qh4?!</strong>, White should not panic but simply develop: 5.Nc3, threatening both the queen and central control. The queen on h4 looks active but can be chased with tempo, and Black often ends up behind in development.</p>
+
+    <div class="move-line">
+      4...Qh4?! 5.Nc3 Bb4 6.<span class="key-move">Qd3!</span>
+      <span class="comment"> — Defends e4 and prepares Nc3-d5 ideas.</span>
+    </div>
+
+    <h3 id="malaniuk">5. The Malaniuk — 4…Bb4+</h3>
+    <p>Black checks immediately with <strong>4…Bb4+</strong>, disrupting White's smooth development. White's best response is <strong>5.c3</strong>, challenging the bishop, after which 5…Ba5 6.Be3 Nf6 leads to a complex fight. The Malaniuk is a solid option for Black that avoids the sharp lines of the Classical.</p>
+
+    <h3 id="gambit">6. The Scotch Gambit — 4.Bc4</h3>
+    <p>Instead of recapturing with the knight, White develops the bishop with <strong>4.Bc4</strong>, entering the Scotch Gambit. After 4…Nf6, White plays the aggressive <strong>5.e5</strong>, gaining space and kicking the knight. The complications are enormous and White must be willing to sacrifice material for the initiative.</p>
+
+    <div class="move-line">
+      3...exd4 4.Bc4 Nf6 <span class="key-move">5.e5</span>
+      <span class="comment"> — Aggressive space grab, kicks the knight.</span><br>
+      5...d5! 6.Bb5 Ne4
+      <span class="comment"> — Black's best: fight for the centre immediately.</span>
+    </div>
+
+    <h2 id="strategy">Key Strategic Themes</h2>
+
+    <p>Understanding these ideas will help you navigate Scotch positions regardless of which specific variation arises:</p>
+
+    <ul>
+      <li><strong>The d4 outpost:</strong> After 4.Nxd4, the knight on d4 is a powerful centralized piece. White should resist trading it unless something concrete is gained.</li>
+      <li><strong>The c5 weakness:</strong> In many lines where Black takes on c6, White aims to dominate the c5 square with a knight or bishop.</li>
+      <li><strong>Central pawn structure:</strong> The Scotch typically leads to an e4 vs e6 or e4 vs d5 structure. White's task is to maintain the e4 pawn or create an isolated d-pawn in Black's camp.</li>
+      <li><strong>Development over material:</strong> In gambit lines (Göring, Scotch Gambit), White prioritizes rapid development over material. Every tempo matters.</li>
+    </ul>
+
+    <div class="opening-box">
+      <div class="opening-box-header">
+        <span class="opening-box-emoji">⚔️</span>
+        <div>
+          <div class="opening-box-title">Train the Scotch in ChessVault</div>
+          <div class="opening-box-subtitle">All 6 lines with move-by-move explanations</div>
+        </div>
+      </div>
+      <p>ChessVault includes all 6 Scotch Game lines: Classical, Mieses, Göring Gambit, Steinitz, Malaniuk, and Scotch Gambit — each with detailed explanations of every move. Drill them with the engine, study them in Learn Mode, then test yourself in Chaos Mode.</p>
+    </div>
+
+    <h2 id="study">How to Study the Scotch</h2>
+
+    <p>Here's the recommended study order:</p>
+    <ol>
+      <li><strong>Start with the Mieses/Schmidt (4…Nf6):</strong> It's the most common response you'll face at club level. Get comfortable with the structure first.</li>
+      <li><strong>Add the Classical (4…Bc5):</strong> This is the most principled and requires the most precise knowledge. The …d5 break is the key idea to understand.</li>
+      <li><strong>Learn the Göring Gambit:</strong> A powerful weapon against unprepared opponents. The traps and attacking ideas are worth knowing.</li>
+      <li><strong>Cover the minor lines:</strong> Steinitz (4…Qh4) and Malaniuk (4…Bb4+) are less common but can catch White off-guard without preparation.</li>
+    </ol>
+
+    <p>Once you've drilled all the lines in ChessVault, use Chaos Mode to test your recall under pressure. If a position comes up and you hesitate, go back and drill that specific line again.</p>
+
+    <div class="related-section">
+      <h3>Related Articles</h3>
+      <div class="related-grid">
+        <a href="/blog/caro-kann-guide" class="related-card">
+          <div class="related-card-cat">Opening Guide</div>
+          <div class="related-card-title">The Caro-Kann Defence: Complete Guide</div>
+        </a>
+        <a href="/blog/how-to-study-openings" class="related-card">
+          <div class="related-card-cat">Method</div>
+          <div class="related-card-title">How to Actually Study Chess Openings</div>
+        </a>
+        <a href="/blog/opera-game-analysis" class="related-card">
+          <div class="related-card-cat">Famous Game</div>
+          <div class="related-card-title">Morphy's Opera Game Analysis</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <a href="#what" class="toc-link">What Is the Scotch?</a>
+      <a href="#lines" class="toc-link">The 6 Main Lines</a>
+      <a href="#classical" class="toc-link" style="padding-left:22px">Classical (4…Bc5)</a>
+      <a href="#mieses" class="toc-link" style="padding-left:22px">Mieses (4…Nf6)</a>
+      <a href="#göring" class="toc-link" style="padding-left:22px">Göring Gambit</a>
+      <a href="#steinitz" class="toc-link" style="padding-left:22px">Steinitz (4…Qh4)</a>
+      <a href="#malaniuk" class="toc-link" style="padding-left:22px">Malaniuk (4…Bb4+)</a>
+      <a href="#gambit" class="toc-link" style="padding-left:22px">Scotch Gambit</a>
+      <a href="#strategy" class="toc-link">Strategic Themes</a>
+      <a href="#study" class="toc-link">How to Study It</a>
+    </div>
+    <a href="/trainer#drill" class="sidebar-cta">
+      ♟ Drill the Scotch Now →
+    </a>
+    <div class="sidebar-ad">Advertisement</div>
+  </div>
+</div>
+
+<!-- AD BOTTOM -->
+<div style="padding:0 24px 40px;text-align:center">
+  <div class="ad-slot">Advertisement</div>
+</div>
+
+<footer>
+  <a href="/">Home</a>
+  <a href="/trainer">Trainer</a>
+  <a href="/blog">Blog</a>
+  <a href="/about">About</a>
+  <a href="/privacy">Privacy</a>
+  <a href="/contact">Contact</a>
+  <p>© 2025 ChessVault — Free chess training for everyone</p>
+</footer>
+
+</body>
+</html>
