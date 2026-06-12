@@ -399,9 +399,9 @@ body.fs-mode #report-wrap{left:0}
       <button class="tb-btn" id="hint-btn" onclick="showHint()" title="Hint (H)">💡 Hint</button>
       <button class="tb-btn" onclick="S.drillFlipped=!S.drillFlipped;restartLine()" title="Flip (F)">⇄ Flip</button>
       <button class="tb-btn" id="notation-btn" onclick="toggleNotation()">▸ Notation</button>
-      <div class="tb-sep"></div>
-      <button class="tb-btn" onclick="toggleFS()" title="Fullscreen">⛶</button>
     </div>
+    <!-- FS button always visible, never hidden -->
+    <button class="tb-btn" id="fs-btn" onclick="toggleFS()" title="Fullscreen (F)" style="flex-shrink:0;margin-left:auto">⛶ FS</button>
   </div>
 
   <!-- CONTENT -->
@@ -709,8 +709,12 @@ function toggleNotation() {
 function toggleFS() {
   document.body.classList.toggle('fs-mode');
   const fsOn = document.body.classList.contains('fs-mode');
+  // Update sidebar nav icon
   const fsNav = document.getElementById('nav-fs');
   if (fsNav) fsNav.querySelector('.ico').textContent = fsOn ? '✕' : '⛶';
+  // Update topbar button — always visible
+  const fsBtn = document.getElementById('fs-btn');
+  if (fsBtn) fsBtn.textContent = fsOn ? '✕ Exit FS' : '⛶ FS';
 }
 
 /* ── Mobile nav ── */
