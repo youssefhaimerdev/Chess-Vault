@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | ChessVault</title>
 <meta name="description" content="Get in touch with the ChessVault team — bug reports, opening suggestions, feedback, or just to say hi.">
-<link rel="canonical" href="https://chessvault.vercel.app/contact">
+<link rel="canonical" href="https://chess-vault-mu.vercel.app/contact">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230d0d0d'/%3E%3Ctext y='.9em' font-size='80' x='10'%3E♞%3C/text%3E%3C/svg%3E">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -95,7 +95,7 @@ footer p{font-size:12px;color:var(--text3);margin-top:12px}
     <h2>SEND US A MESSAGE</h2>
     <p>We typically respond within 1–2 business days. For bug reports, please include your browser and device type.</p>
 
-    <form id="contact-form" onsubmit="handleSubmit(event)">
+    <form id="contact-form" action="https://formspree.io/f/mqeoygrv" method="POST" onsubmit="handleSubmit(event)">
       <div class="form-group">
         <label for="name">Your Name</label>
         <input type="text" id="name" name="name" placeholder="Magnus Carlsen" required>
@@ -124,6 +124,7 @@ footer p{font-size:12px;color:var(--text3);margin-top:12px}
       <div class="success-msg" id="success-msg">
         ✓ Message sent! We'll get back to you within 1–2 business days.
       </div>
+      <div id="error-msg" style="display:none;margin-top:12px;padding:12px;background:rgba(192,57,43,.12);border:1px solid rgba(192,57,43,.3);border-radius:8px;color:#e57373;font-size:13px;font-weight:600">✗ Something went wrong — please try again or email us directly at hello@chessvault.app</div>
     </form>
   </div>
 
@@ -169,17 +170,34 @@ footer p{font-size:12px;color:var(--text3);margin-top:12px}
 </footer>
 
 <script>
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
-  // In production, wire to a form service (Formspree, EmailJS, etc.)
   const btn = document.querySelector('.submit-btn');
   const msg = document.getElementById('success-msg');
+  const errMsg = document.getElementById('error-msg');
   btn.textContent = 'Sending…'; btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'Sent ✓'; btn.style.background = 'var(--green)';
-    msg.style.display = 'block';
-    document.getElementById('contact-form').reset();
-  }, 800);
+  errMsg.style.display = 'none';
+  try {
+    const data = new FormData(e.target);
+    const res = await fetch('https://formspree.io/f/mqeoygrv', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      btn.textContent = 'Sent ✓';
+      btn.style.background = 'var(--green)';
+      btn.style.color = '#fff';
+      msg.style.display = 'block';
+      document.getElementById('contact-form').reset();
+    } else {
+      throw new Error('Server error');
+    }
+  } catch {
+    btn.textContent = 'Send Message ♟';
+    btn.disabled = false;
+    errMsg.style.display = 'block';
+  }
 }
 </script>
 </body>

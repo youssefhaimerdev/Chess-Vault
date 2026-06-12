@@ -1,15 +1,12 @@
 /**
  * ChessVault — Complete Opening Database
- * Extracted faithfully from the original trainer. All 85 lines preserved.
- * window.OPENINGS and window.FAMOUS_GAMES are set here for global access.
- */
-/**
- * ChessVault — Complete Opening Database
- * Extracted faithfully from the original trainer. All 87 lines preserved.
- * To add openings: create a new file in /openings/ and add entries here.
+ * Faithfully extracted from the original trainer.
+ * 7 openings, 85 lines total + 4 Famous Games.
  */
 
-window.window.OPENINGS={
+/* eslint-disable */
+
+window.OPENINGS={
 
 /* ════ SCOTCH GAME — White plays White ════ */
 scotch:{flipped:false,myColor:'w',lines:[
@@ -1865,13 +1862,9 @@ null,
 
 ]},/* end french_white */
 
-};/* end OPENINGS */
+};
 
-
-/**
- * Famous Games — also extracted from the original trainer.
- */
-window.window.FAMOUS_GAMES=[
+window.FAMOUS_GAMES=[
 {
   title:'Holmes vs Moriarty — Reichenbach Falls, 1891',
   subtitle:'Moriarty (White) vs Holmes (Black) — The Final Problem',
@@ -2042,6 +2035,6 @@ window.window.FAMOUS_GAMES=[
 },
 ];
 
-// Alias for engine compatibility
+/* Aliases for engine.js direct reference */
 var OPENINGS = window.OPENINGS;
 var FAMOUS_GAMES = window.FAMOUS_GAMES;

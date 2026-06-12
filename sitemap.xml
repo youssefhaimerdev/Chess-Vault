@@ -3,86 +3,86 @@
 
   <!-- Core Pages -->
   <url>
-    <loc>https://chessvault.vercel.app/</loc>
+    <loc>https://chess-vault-mu.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://chessvault.vercel.app/trainer</loc>
+    <loc>https://chess-vault-mu.vercel.app/trainer</loc>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://chessvault.vercel.app/about</loc>
+    <loc>https://chess-vault-mu.vercel.app/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://chessvault.vercel.app/privacy</loc>
+    <loc>https://chess-vault-mu.vercel.app/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://chessvault.vercel.app/contact</loc>
+    <loc>https://chess-vault-mu.vercel.app/contact</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <!-- Blog Index -->
   <url>
-    <loc>https://chessvault.vercel.app/blog</loc>
+    <loc>https://chess-vault-mu.vercel.app/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Blog Articles -->
   <url>
-    <loc>https://chessvault.vercel.app/blog/how-to-study-openings</loc>
+    <loc>https://chess-vault-mu.vercel.app/blog/how-to-study-openings</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://chessvault.vercel.app/blog/scotch-game-guide</loc>
+    <loc>https://chess-vault-mu.vercel.app/blog/scotch-game-guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://chessvault.vercel.app/blog/caro-kann-guide</loc>
+    <loc>https://chess-vault-mu.vercel.app/blog/caro-kann-guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://chessvault.vercel.app/blog/opera-game-analysis</loc>
+    <loc>https://chess-vault-mu.vercel.app/blog/opera-game-analysis</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://chessvault.vercel.app/blog/immortal-game-analysis</loc>
+    <loc>https://chess-vault-mu.vercel.app/blog/immortal-game-analysis</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://chessvault.vercel.app/blog/french-advance-guide</loc>
+    <loc>https://chess-vault-mu.vercel.app/blog/french-advance-guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://chessvault.vercel.app/blog/nimzo-indian-guide</loc>
+    <loc>https://chess-vault-mu.vercel.app/blog/nimzo-indian-guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://chessvault.vercel.app/blog/sicilian-alapin</loc>
+    <loc>https://chess-vault-mu.vercel.app/blog/sicilian-alapin</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://chessvault.vercel.app/blog/opening-mistakes</loc>
+    <loc>https://chess-vault-mu.vercel.app/blog/opening-mistakes</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://chessvault.vercel.app/blog/how-to-study-famous-games</loc>
+    <loc>https://chess-vault-mu.vercel.app/blog/how-to-study-famous-games</loc>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
