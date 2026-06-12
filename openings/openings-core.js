@@ -1,11 +1,3 @@
-/**
- * ChessVault — Complete Opening Database
- * Faithfully extracted from the original trainer.
- * 7 openings, 85 lines total + 4 Famous Games.
- */
-
-/* eslint-disable */
-
 window.OPENINGS={
 
 /* ════ SCOTCH GAME — White plays White ════ */
@@ -2035,6 +2027,6 @@ window.FAMOUS_GAMES=[
 },
 ];
 
-/* Aliases for engine.js direct reference */
-var OPENINGS = window.OPENINGS;
-var FAMOUS_GAMES = window.FAMOUS_GAMES;
+// Direct aliases so engine.js can reference without window. prefix
+var OPENINGS=window.OPENINGS;
+var FAMOUS_GAMES=window.FAMOUS_GAMES;
