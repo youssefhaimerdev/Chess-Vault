@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- White rounded square background -->
+  <rect width="100" height="100" rx="20" fill="#ffffff"/>
+  <!-- Black knight -->
+  <text 
+    x="50" y="80" 
+    text-anchor="middle" 
+    font-size="74"
+    font-family="Georgia, 'Times New Roman', serif"
+    fill="#111111"
+  >♞</text>
+</svg>

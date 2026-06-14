@@ -7,7 +7,8 @@
 <meta name="description" content="Train chess openings with Drill, Learn, Chaos, Blindfold and more — free, no login.">
 <meta name="theme-color" content="#111111">
 <link rel="canonical" href="https://chess-vault-mu.vercel.app/trainer">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230d0d0d'/%3E%3Ctext y='.9em' font-size='80' x='10'%3E%E2%99%9E%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
 
@@ -287,6 +288,11 @@ body.fs-mode #report-wrap{left:0}
 
 @media(max-width:680px){
   #left-nav{display:none!important}
+  /* Hide opening/line pickers and action buttons from topbar on mobile */
+  #tb-openings{display:none!important}
+  #tb-btns{display:none!important}
+  /* Keep only title + FS in topbar */
+  #topbar{padding:0 10px;gap:8px}
   #mob-nav{
     display:flex!important;position:fixed;bottom:0;left:0;right:0;
     height:58px;background:var(--bg2);border-top:1px solid var(--border);
@@ -305,6 +311,10 @@ body.fs-mode #report-wrap{left:0}
   #tb-opening-sel{max-width:130px}
   #tb-line-sel{max-width:140px}
   #content{flex:1;display:flex;flex-direction:column!important;overflow:hidden;min-height:0}
+  /* Show mobile controls in right panel */
+  #mob-controls{display:flex!important}
+  /* Hide hint-btn in topbar when on mobile (it's in right panel) */
+  #hint-btn{display:none!important}
   #board-panel{flex:0 0 auto!important;padding:3px 0!important;align-items:center;justify-content:center;overflow:visible;background:var(--bg)}
   :root{--sq:calc((100vw - 20px) / 8)}
   #right-panel{
@@ -438,6 +448,19 @@ body.fs-mode #report-wrap{left:0}
         <div style="margin-top:8px"><div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div></div>
       </div>
 
+      <!-- ── Mobile-only: opening + line pickers + action buttons ── -->
+      <div id="mob-controls" style="display:none;flex-direction:column;gap:6px">
+        <div style="display:flex;gap:6px">
+          <select id="mob-opening-sel" class="rp-sel" style="flex:1" onchange="cvPickOpening(this.value)"></select>
+          <select id="mob-line-sel" class="rp-sel" style="flex:1" onchange="cvPickLine(parseInt(this.value))"></select>
+        </div>
+        <div class="btns-row" id="mob-action-btns">
+          <button class="btn" id="mob-hint-btn" onclick="showHint()">💡 Hint</button>
+          <button class="btn" onclick="S.drillFlipped=!S.drillFlipped;restartLine()">⇄ Flip</button>
+          <button class="btn" id="mob-notation-btn" onclick="toggleNotation()">▸ Notation</button>
+        </div>
+      </div>
+
       <!-- ── Status ── -->
       <div class="status info" id="status">Loading…</div>
 
@@ -465,7 +488,14 @@ body.fs-mode #report-wrap{left:0}
 
       <!-- ── Learn explanation card ── -->
       <div class="rp-card learn-card" id="learn-panel">
-        <div id="learn-lbl" class="learn-move-lbl">—</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+          <div id="learn-lbl" class="learn-move-lbl" style="margin-bottom:0">—</div>
+          <button id="tts-btn" onclick="ttsToggleMute()" title="Read explanation aloud" style="
+            background:none;border:none;cursor:pointer;padding:3px 6px;
+            border-radius:var(--radius);font-size:16px;line-height:1;
+            color:var(--text2);transition:all .15s;flex-shrink:0;
+          ">🔊</button>
+        </div>
         <div id="learn-text" class="learn-text">Pick an opening and start learning. Every move comes with a full explanation.</div>
         <div id="learn-tags" class="tags"></div>
       </div>
@@ -623,6 +653,9 @@ function buildOpeningSelect() {
     });
     sel.appendChild(og);
   });
+  // Sync mobile opening selector
+  const mobSel = document.getElementById('mob-opening-sel');
+  if (mobSel) mobSel.innerHTML = sel.innerHTML;
 }
 
 function buildLineSelect() {
@@ -637,6 +670,9 @@ function buildLineSelect() {
   // Update engine's S.lineIdx display
   if (vis) vis.value = S.lineIdx;
   if (hid) hid.value = S.lineIdx;
+  // Sync mobile line selector
+  const mobLine = document.getElementById('mob-line-sel');
+  if (mobLine) { mobLine.innerHTML = opts; mobLine.value = S.lineIdx; }
 }
 
 function cvPickOpening(key) {
@@ -782,6 +818,10 @@ function setView(v) {
 
   /* defaults — reset everything */
   [dh, db, ds, kh].forEach(el => { if (el) el.style.display = ''; });
+  // Mobile controls: show for drill/learn, hide otherwise (CSS handles visibility)
+  const mc = document.getElementById('mob-controls');
+  const ma = document.getElementById('mob-action-btns');
+  const mhb = document.getElementById('mob-hint-btn');
   if (lp) { lp.classList.remove('vis'); }
   if (ow) { ow.classList.remove('vis'); }
   if (gp) { gp.style.display = 'none'; }
@@ -804,6 +844,7 @@ function setView(v) {
 
   } else if (v === 'stopcheck') {
     [dh, db, ds, kh].forEach(el => { if (el) el.style.display = 'none'; });
+    if (mc) mc.style.display = 'none';
     if (tbo) tbo.style.display = 'none';
     if (tbb) tbb.style.display = 'none';
     if (!$('sc-panel')) scBuildPanel(rp);
@@ -811,6 +852,7 @@ function setView(v) {
 
   } else if (v === 'game') {
     [dh, db, ds, kh].forEach(el => { if (el) el.style.display = 'none'; });
+    if (mc) mc.style.display = 'none';
     if (tbo) tbo.style.display = 'none';
     if (tbb) tbb.style.display = 'none';
     if (tbg) tbg.style.display = 'flex';
@@ -819,6 +861,7 @@ function setView(v) {
 
   } else if (v === 'chaos') {
     [dh, db, ds, kh].forEach(el => { if (el) el.style.display = 'none'; });
+    if (mc) mc.style.display = 'none';
     if (tbo) tbo.style.display = 'none';
     if (tbb) tbb.style.display = 'none';
     const tpl = document.getElementById('tpl-chaos');
@@ -841,6 +884,7 @@ function setView(v) {
   } else if (v === 'learn') {
     S.mode = 'learn';
     if (hb) hb.style.display = 'none';
+    if (mhb) mhb.style.display = 'none';
     if (lp) lp.classList.add('vis');
     if (ow) ow.classList.add('vis');
     drawArrows([]);
@@ -850,6 +894,7 @@ function setView(v) {
   } else {
     /* drill */
     S.mode = 'drill';
+    if (mhb) mhb.style.display = '';
     drawArrows([]);
     S.drillFlipped = false;
     restartLine();
@@ -922,5 +967,106 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 </script>
+
+<script>
+/* ═══════════════════════════════════════════════
+   TEXT-TO-SPEECH — Learn Mode Explanation Reader
+   Uses Web Speech API (built into all modern browsers)
+   No external deps, no impact on existing code.
+═══════════════════════════════════════════════ */
+const TTS = {
+  muted: false,           // false = voice ON, true = muted
+  speaking: false,
+  utterance: null,
+};
+
+/* Read a string aloud — called by updateLearnPanel in engine.js */
+function ttsSpeak(text) {
+  if (!window.speechSynthesis || !text) return;
+  // Cancel any ongoing speech first
+  window.speechSynthesis.cancel();
+  TTS.speaking = false;
+  if (TTS.muted) return;
+  // Small delay so cancel() takes effect before new utterance
+  setTimeout(() => {
+    const u = new SpeechSynthesisUtterance(text);
+    u.rate  = 0.95;
+    u.pitch = 1.0;
+    u.volume = 1.0;
+    // Prefer a natural English voice if available
+    const voices = window.speechSynthesis.getVoices();
+    const preferred = voices.find(v =>
+      v.lang.startsWith('en') && (v.name.includes('Google') || v.name.includes('Natural') || v.name.includes('Samantha'))
+    ) || voices.find(v => v.lang.startsWith('en'));
+    if (preferred) u.voice = preferred;
+    u.onstart = () => { TTS.speaking = true; };
+    u.onend   = () => { TTS.speaking = false; };
+    u.onerror = () => { TTS.speaking = false; };
+    TTS.utterance = u;
+    window.speechSynthesis.speak(u);
+  }, 60);
+}
+
+/* Toggle mute/unmute */
+function ttsToggleMute() {
+  TTS.muted = !TTS.muted;
+  const btn = document.getElementById('tts-btn');
+  if (btn) btn.textContent = TTS.muted ? '🔇' : '🔊';
+  if (TTS.muted && window.speechSynthesis) {
+    window.speechSynthesis.cancel();
+    TTS.speaking = false;
+  } else {
+    // Immediately read current explanation text if unmuting
+    const txt = document.getElementById('learn-text');
+    if (txt && txt.textContent && txt.textContent.trim() &&
+        txt.textContent !== 'Pick an opening and start learning. Every move comes with a full explanation.') {
+      ttsSpeak(txt.textContent);
+    }
+  }
+}
+
+/* Stop speech when leaving learn mode */
+function ttsStop() {
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  TTS.speaking = false;
+}
+
+/* Voices load async in some browsers — pre-load them */
+if (window.speechSynthesis) {
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.addEventListener('voiceschanged', () => {
+    window.speechSynthesis.getVoices(); // cache
+  });
+}
+
+/* ── Hook into engine's updateLearnPanel ──
+   The engine calls updateLearnPanel(idx) which sets learn-text content.
+   We wrap it here to also trigger TTS after the text is set.
+   This is purely additive — original function still runs first. */
+document.addEventListener('DOMContentLoaded', () => {
+  // Wait for engine to be ready, then wrap updateLearnPanel
+  setTimeout(() => {
+    if (typeof updateLearnPanel === 'function') {
+      const _orig = updateLearnPanel;
+      window.updateLearnPanel = function(idx) {
+        _orig(idx);
+        // Only speak in learn mode
+        if (S.view === 'learn' || S.mode === 'learn') {
+          const txt = document.getElementById('learn-text');
+          if (txt && txt.textContent) ttsSpeak(txt.textContent);
+        }
+      };
+    }
+  }, 300);
+
+  // Stop TTS when switching away from learn mode
+  const _origSetView = setView;
+  window.setView = function(v) {
+    if (v !== 'learn') ttsStop();
+    _origSetView(v);
+  };
+});
+</script>
+
 </body>
 </html>
