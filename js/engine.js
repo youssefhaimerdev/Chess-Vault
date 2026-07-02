@@ -1,4 +1,4 @@
-/* ChessVault Engine — faithfully ported from original trainer */
+/* ChessVault Engine — from original trainer */
 /* eslint-disable */
 
 const GLYPHS={wK:'&#9812;',wQ:'&#9813;',wR:'&#9814;',wB:'&#9815;',wN:'&#9816;',wP:'&#9817;',
