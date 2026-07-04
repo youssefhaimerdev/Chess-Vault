@@ -585,7 +585,7 @@ explain:[
 caro:{flipped:true,myColor:'b',lines:[
 
 {name:'1. Advance — 3.e5 Bf5 (Na4 Queen Trap)',
-moves:['e2e4','c7c6','d2d4','d7d5','e4e5','c8f5','g1f3','e7e6','f1e2','c7c5','e1g1','b8c6','c1e3','d8b6','b1c3','b6b2','c3a4','b2a5','c2c3','c5c4'],
+moves:['e2e4','c7c6','d2d4','d7d5','e4e5','c8f5','g1f3','e7e6','f1e2','c6c5','e1g1','b8c6','c1e3','d8b6','b1c3','b6b2','c3a4','b2a5','c2c3','c5c4'],
 explain:[
     null,
     {t:'c6 — The Caro-Kann! Solid and flexible.',tags:['Caro-Kann'],ar:[{f:'c7',t:'c6'}]},
