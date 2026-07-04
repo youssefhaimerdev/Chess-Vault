@@ -585,7 +585,7 @@ explain:[
 caro:{flipped:true,myColor:'b',lines:[
 
 {name:'1. Advance — 3.e5 Bf5 (Na4 Queen Trap)',
-moves:['e2e4','c7c6','d2d4','d7d5','e4e5','c8f5','g1f3','e7e6','f1e2','c6c5','e1g1','b8c6','c1e3','d8b6','b1c3','b6b2','c3a4','b2a5','c2c3','c5c4'],
+moves:['e2e4','c7c6','d2d4','d7d5','e4e5','c8f5','g1f3','e7e6','f1e2','c6c5','e1g1','b8c6','c1e3','d8b6','b1c3','b6b2','c3a4','b2c2','d1c2','f5c2'],
 explain:[
     null,
     {t:'c6 — The Caro-Kann! Solid and flexible.',tags:['Caro-Kann'],ar:[{f:'c7',t:'c6'}]},
@@ -606,11 +606,11 @@ explain:[
     null,
     {t:'Na4! — TRAP! The queen is now caught. b2 was poisoned.',tags:['Trap','Queen trapped','Key move'],ar:[{f:'b1',t:'a4'},{f:'a4',t:'b2',c:'r'}]},
     null,
-    {t:'Qa5 — Only safe square. Queen is out of the game.',tags:['Forced','Queen sidelined'],ar:[{f:'b2',t:'a5'}]},
+    {t:'Qxc2! — Black wins another pawn before escaping.',tags:['Win pawn','Forcing'],ar:[{f:'b2',t:'c2'}]},
     null,
-    {t:'c3 — Consolidates centre. White has space and development.',tags:['Consolidate','Advantage'],ar:[{f:'c2',t:'c3'}]},
+    {t:'Qxc2 — White recaptures with the queen.',tags:['Recapture'],ar:[{f:'d1',t:'c2'}]},
     null,
-    {t:'c4 — Black closes the queenside but lags in development.',tags:['Space','Structural choice'],ar:[{f:'c5',t:'c4'}]}
+    {t:'Bxc2 — Black wins the queen with the bishop! Material advantage.',tags:['Win material','Tactic','Key move'],ar:[{f:'f5',t:'c2'}]}
 ]},
 {name:'2. Exchange — 3.exd5 cxd5 4.Bd3',
 moves:['e2e4','c7c6','d2d4','d7d5','e4d5','c6d5','f1d3','b8c6','c2c3','g8f6','c1f4','c8g4','d1b3','d8d7','b1d2','e7e6','g1f3','f8e7','e1g1'],
